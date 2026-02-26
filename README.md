@@ -1,37 +1,120 @@
-# Job Aboard - Microservices Training Project
+# Workshop 4 – Communication inter-services avec OpenFeign
 
-## 📌 About the Project
-**Job Aboard** is an **academic project** designed to help students **master microservices architecture** through a **30-hour hands-on training program**. The project focuses on building a **job listing management system** using a microservices approach.
-## 📌Project Architecture
-![](https://github.com/badi3a/JobBoard_Microservice/blob/main/documentation/diag/microservices-global-architecture.drawio%20(2).png)
+🎓 **Formation : Microservices**  
+📅 **Année universitaire : 2025–2026**  
+🧑‍💻 **Workshop 4**
 
-## 🎯 Main Goal
-The primary objective of this project is to provide students with:  
-✅ A **practical understanding** of microservices concepts.  
-✅ Experience in **service decomposition, inter-service communication, and scalability**.  
-✅ Hands-on training with **modern tools and frameworks** used in microservices development.
+---
 
-## 🛠️ Technologies & Concepts
-Throughout the training, students will work with:
-- **Spring Boot / Node.js** (for microservices implementation)
-- **API Gateway & Service Discovery**
-- **Message Brokers (Kafka, RabbitMQ, etc.)**
-- **Containerization (Docker, Kubernetes)**
-- **Database Management (SQL/NoSQL)**
-- **Security with Keycloak (Authentication & Authorization)**
-- **Frontend with Angular Framework**
+## 🎯 Objectif du workshop
 
-## 📅 Training Duration
-**30 hours** of guided learning and project development.
+L’objectif de ce workshop est de mettre en place la communication inter-microservices en utilisant **Spring Cloud OpenFeign**.
 
-## 🚀 Learning Outcome
-By the end of this training, students will be able to **design, develop, and deploy scalable and secure microservices applications**, preparing them for real-world software architecture challenges.
+À la fin de ce workshop, l’étudiant sera capable de :
 
----  
----  
-## 🎓 Acknowledgment
-This project is part of the academic training provided by **ESPRIT School of Engineering**, aiming to equip students with industry-relevant skills in modern software development.
-## 👨‍🏫 Contact
-Connect with me on LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/badiabouhdid/)
+- Comprendre le principe de communication synchrone entre microservices
+- Configurer et utiliser OpenFeign
+- Intégrer Eureka pour la découverte dynamique des services
+- Implémenter un endpoint enrichi (agrégation de données)
+- Respecter les bonnes pratiques d’architecture microservices
+
+---
+
+## 🧩 Architecture mise en place
+
+Dans ce workshop, nous mettons en œuvre :
+
+- 🖥️ Un **Eureka Server**
+- 📦 Microservice **Job**
+- 👤 Microservice **Candidat**
+- 📑 Microservice **Candidature**
+- 🔁 Communication inter-services via **OpenFeign**
+
+Le microservice **Candidature** :
+
+- Stocke uniquement `jobId` et `candidatId`
+- Récupère les informations complètes via Feign
+- Propose un endpoint enrichi `/details`
+
+---
+
+## 🔄 Principe de fonctionnement
+
+1. Le client appelle le microservice **Candidature**.
+2. Le service récupère les données locales.
+3. Il interroge dynamiquement :
+   - Le microservice **Job**
+   - Le microservice **Candidat**
+4. Il retourne une réponse enrichie combinant les données.
+
+---
+
+## 🛠️ Technologies utilisées
+
+- Java 17
+- Spring Boot 3.x
+- Spring Data JPA
+- Spring Web (REST)
+- Spring Cloud OpenFeign
+- Spring Cloud Netflix Eureka
+- MySQL
+- Maven
+- IntelliJ IDEA
+
+---
+
+## 📄 Énoncé du workshop
+
+L’énoncé détaillé du Workshop 4 est disponible au format PDF :
+
+👉 [Télécharger l’énoncé du Workshop 2](https://github.com/badi3a/AWD-Training/blob/W04-OpenFeign/Atelier%20Communication%20entre%20MS%20avec%20OpenFeign.pdf)
+
+---
+
+## 📝 Travail à faire (Rendu)
+
+- Configurer Eureka Server
+- Créer les microservices Job, Candidat et Candidature
+- Activer OpenFeign dans le microservice Candidature
+- Implémenter les Feign Clients
+- Créer un endpoint enrichi `/candidature/{id}/details`
+- Tester la communication inter-services
 
 
+---
+
+## 🧠 Concepts abordés
+
+- Architecture microservices
+- Communication synchrone
+- Découverte de services
+- DTO vs Entity
+- Références distantes par identifiant
+- Agrégation de données distribuées
+
+---
+
+## ✅ Rendu attendu
+
+- Eureka fonctionnel
+- Microservices correctement enregistrés
+- Communication Feign opérationnelle
+- Endpoint enrichi fonctionnel
+- Code structuré et respectant les bonnes pratiques
+- Projet poussé sur **GitHub**
+
+---
+
+💡 **Conseil :**  
+Démarrez toujours le serveur Eureka avant de lancer l’API Gateway et les microservices.
+
+🚀 Bon courage et bonne implémentation !
+
+---
+
+## 🏫 Cadre pédagogique
+
+### Enseignante : [Badia Bouhdid](https://www.linkedin.com/in/badiabouhdid)
+
+Ce workshop a été développé dans le cadre du module **Applications Web Distribuées**,  
+à l’**École d’Ingénieurs ESPRIT**.
