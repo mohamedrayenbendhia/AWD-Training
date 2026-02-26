@@ -1,7 +1,10 @@
 package esprit.canditature;
 
-import esprit.canditature.Job;
+import esprit.canditature.dto.Candidat;
+import esprit.canditature.dto.Job;
 
+import esprit.canditature.entity.Candidature;
+import esprit.canditature.entity.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,8 +33,15 @@ public class CandidatureRestApi {
         return candidatureService.getJobById(id);
     }
     // Le reste des ressources liées à l’API Candidature
+    @GetMapping("/candidat/{id}")
+    public Candidat candidat(@PathVariable int id){
+        return candidatureService.getCandidatById(id);
+    }
 
 
-
+@PostMapping
+public Candidature createCandidature(@RequestBody Candidature candidature) {
+        return candidatureService.saveCandidature(candidature);
+}
 
 }

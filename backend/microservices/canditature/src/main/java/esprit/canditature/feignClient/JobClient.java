@@ -1,6 +1,6 @@
-package esprit.canditature;
+package esprit.canditature.feignClient;
 
-import esprit.canditature.Job;
+import esprit.canditature.dto.Job;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
